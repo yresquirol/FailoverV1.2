@@ -18,6 +18,7 @@ Como usar el código:
 
 2. Copiar todo el código, pegarlo en el Terminal del Mikrotik y esperar a que se ejecuten todas las operaciones.
 3. Si usó el archivo de configuración que usa netwatch para chequear si hay Internet salte directamente al paso 4, si no, modifica el código de abajo manteniendo el esquema según el nombre y la cantidad de interfaces inalámbricas que tengas. El valor entre las comillas es el nombre de las interfaces inalámbricas:
+
     :global before { "wlan1"=0 ; "wlan2"=0 ; "wlan3"=0 ; "wlan4"=0 };
     - Ir a: System -> Scheduler, abrir el script "Init" y pegar el código ya adaptado a su configuración en la primera línea de manera que quede de primero.
     
