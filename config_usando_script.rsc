@@ -68,7 +68,7 @@ system script add dont-require-permissions=yes name=Failover source=":local ifac
 # FUNCTION LIKE NETWATCH FOR EACH INTERFACE
 for watch from=1 to=$ifaces do={ system script add dont-require-permissions=yes name=("$prefix$watch"."Internet") source=":global before;\r\
     \n:local iface \"$prefix$watch\";\r\
-    \n:local ipToPing 10.219.17.85;\r\
+    \n:local ipToPing $hostToPing;\r\
     \nif ([ping \$ipToPing count=2 interface=\$iface]>0) do {\r\
     \n    if ([(\$before->\$iface)]=0) do {\r\
     \n        :set (\$before->\$iface) 1;\r\
