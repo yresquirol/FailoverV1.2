@@ -110,6 +110,6 @@ for rule from=1 to=$ifaces do={ ip route rule add dst-address=181.225.233.40/32 
 
 #FINISHING CONFIGURATION
 foreach var in=[system script environment find] do={ system script environment remove $var }
-system scheduler add name=init start-time=startup on-event="delay 5;\r\ \nsystem script run Failover;"
+system scheduler add name=init start-time=startup on-event="ip firewall mangle disable [find action=mark-connection && src-address-list=\"full\" && new-connection-mark~\"_conNTH\" && disabled=no];\r\ \ndelay 5;\r\ \nsystem script run Failover;"
 system scheduler add name=refreshInterface start-time=startup interval=1m on-event="system script run renewByPing;"
 log warning "Proceso finalizado";
